@@ -99,13 +99,14 @@
   <section id="context">
     <h2>Context</h2>
     <p>
-<a href="https://www.w3.org/TR/json-ld11/#dfn-context">JSON-LD Context</a> file: <a
-href="https://demo.didkit.dev/2022/cacao-zcap/contexts/v1.json">https://demo.didkit.dev/2022/cacao-zcap/contexts/v1.json</a>
+This specification defines the following
+<a href="https://www.w3.org/TR/json-ld11/#dfn-context">JSON-LD Context</a> file:
+<a href="contexts/v1.json">https://demo.didkit.dev/2022/cacao-zcap/contexts/v1.json</a>
     </p>
     <p>
-This context file is expected to be used in <code>@context</code> following the
+JSON-LD documents using <a href="#CacaoZcap2022">CacaoZcap2022</a> and <a href="#CacaoZcapProof2022">CacaoZcapProof2022</a> are expected to use this context file in <code>@context</code> following the
 [[SECURITY-VOCABULARY]] context
-(<a href="https://w3id.org/security/v2">https://w3id.org/security/v2</a>). i.e.:
+(<a href="https://w3id.org/security/v2">https://w3id.org/security/v2</a>), i.e.:
     </p>
     <pre>
 {
@@ -295,12 +296,13 @@ id of the delegation object.
       <h3>issuer-verificationMethod mapping</h3>
       <p>
 The CACAO payload issuer property (<code>p.iss</code>) is defined by [[CACAO]]
-to be a [[DID-PKH]] DID. The proof
-<a href="https://www.w3.org/TR/did-core/#dfn-verificationmethod"><code>verificationMethod</code></a>
+to be a [[DID-PKH]] <a data-cite="DID-CORE#dfn-decentralized-identifiers">DID</a>. The proof
+<a href="https://w3c-ccg.github.io/data-integrity-spec/#dfn-verificationmethod">verificationMethod</a>
 property is expected to be a
-<a href="https://www.w3.org/TR/did-core/#did-url-syntax">DID URL</a> resolving to
-a <a href="https://w3c-ccg.github.io/data-integrity-spec/#verification-methods">verification method</a>.
-CACAO-ZCAP converts between these two fields by assuming that the issuer DID
+<a data-cite="DID-CORE#did-url-syntax">DID URL</a> resolving to
+a <a data-cite="DID-CORE#verification-methods">verification method map</a>.
+CACAO-ZCAP converts between these two fields (CACAO issuer and verification
+method URL) by assuming that the issuer DID
 has a <em>default verification method</em>, that the CACAO signature is created
 using the
 <a href="https://w3c-ccg.github.io/data-integrity-spec/#verification-material">verification material</a>
@@ -375,24 +377,26 @@ substmt-opt      = [ ": " substatement ]
 actions          = action *( ", " action )
 action           = *( reserved / unreserved / " " )
 substatement     = *( reserved / unreserved / " " )
-	</pre>
-        <p>The <code>substatement</code> is the value of the <a href="#cacaoZcapSubstatement">cacaoZcapSubstatement</a> proof property if present.</p>
-        <p>The <code>action</code> values are represented in the proof's <code>allowedAction</code> property as follows:</p>
-        <ul>
-          <li><code>allowedAction</code> is omitted when the <code>stmt-noaction</code> production is matched.</li>
-          <li><code>allowedAction</code> is an array of <code>action</code> strings when the <code>stmt-actions</code> production is matched.</li>
-        </ul>
+      </pre>
+      <p>The <code>substatement</code> is the value of the <a href="#cacaoZcapSubstatement">cacaoZcapSubstatement</a> proof property if present.</p>
+      <p>The <code>action</code> values are represented in the proof's <code>allowedAction</code> property as follows:</p>
+      <ul>
+        <li><code>allowedAction</code> is omitted when the <code>stmt-noaction</code> production is matched.</li>
+        <li><code>allowedAction</code> is an array of <code>action</code> strings when the <code>stmt-actions</code> production is matched.</li>
+      </ul>
     </section>
 
   </section>
 
-  <section id="terms">
-    <h2>Terms</h2>
+  <section id="vocabulary">
+    <h2>CACAO-ZCAP Vocabulary</h2>
     <p>
 This document defines the following terms, in the namespace
 <code>https://demo.didkit.dev/2022/cacao-zcap/#</code>.
     </p>
-
+    <p>
+In JSON-LD, these terms may be imported using [[[#context]]].
+    </p>
     <section id="CacaoZcap2022">
       <h3>CacaoZcap2022</h3>
       <p>
