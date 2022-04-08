@@ -1,106 +1,113 @@
 <!doctype html>
 <html>
 <head>
-	<title>CACAO-ZCAP</title>
-	<meta charset=utf-8>
-	<style>
+  <title>CACAO-ZCAP</title>
+  <meta charset=utf-8>
+  <style>
 .mapping-table td:nth-child(2) {
-	text-align: center;
+  text-align: center;
 }
-	</style>
-	<script defer class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
-	<script class="remove">
-	  // https://respec.org/docs/
-	  const respecConfig = {
-	    shortName: "cacao-zcap",
-	    specStatus: "unofficial",
-	    edDraftURI: "https://demo.didkit.dev/2022/cacao-zcap/",
-	    editors: [
-	      {
-		name: "Charles E. Lehner", url: "https://www.w3.org/wiki/User:Cel",
-		company: "Spruce", companyURL: "https://spruceid.com/",
-		w3cid: 124982
-	      }
-	    ],
-	    subtitle: "Chain-Agnostic CApability Objects (CACAOs) as Authorization Capabilities (zCaps)",
-	    group: "credentials",
-	    wgPublicList: "public-credentials",
-	    github: {
-	      repoURL: "spruceid/cacao-zcap",
-	      branch: "main"
-	    },
-	    localBiblio: {
-	      "MULTIBASE": {
-		title: "The Multibase Encoding Scheme",
-		date: "February 2022",
-		href: "https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-05",
-		authors: ["Juan Benet", "Manu Sporny"],
-		status: "Internet-Draft",
-		publisher: "IETF"
-	      },
-	      "SECURITY-VOCABULARY": {
-		title: "Security Linked Data Vocabulary",
-		href: "https://w3id.org/security",
-		authors: ["Manu Sporny", "David Longley"],
-		status: "CGDRAFT",
-		publisher: "Web Payments Community Group",
-	      },
-	      "DATA-INTEGRITY": {
-		title: "Data Integrity",
-		href: "https://w3c-ccg.github.io/data-integrity-spec/",
-		authors: ["David Longley", "Manu Sporny"],
-		status: "CGDRAFT",
-		publisher: "Credentials Community Group",
-	      },
-	      "ZCAP": {
-		title:    "Authorization Capabilities for Linked Data v0.3",
-		href:     "https://w3c-ccg.github.io/zcap-spec/",
-		status:   "CGDRAFT",
-		authors: ["Christopher Lemmer Webber", "Manu Sporny", "Mark S. Miller"],
-		publisher:  "Credentials Community Group"
-	      },
-	      "CACAO": {
-		title: "CACAO: Chain Agnostic CApability Object",
-		href: "https://github.com/ChainAgnostic/CAIPs/blob/91aaaff73038c2629ff11b88c2209f61521d8ece/CAIPs/caip-74.md",
-		authors: ["Sergey Ukustov"],
-                publisher: "CASA",
-		date: "March 2022"
-	      },
-	      "DAG-CBOR": {
-	        title: "DAG-CBOR: CBOR IPLD format",
-		href: "https://ipld.io/specs/codecs/dag-cbor/spec/",
-		authors: ["Rod Vagg", "Volker Mische", "Mikeal Rogers"],
-		status: "Descriptive - Draft",
-                publisher: "IPLD",
-		date: "August 2019"
-	      },
-	      "DID-PKH": {
-	        title: "The did:pkh Method",
-                href: "https://github.com/w3c-ccg/did-pkh/blob/ea93b0a5e0e8b54e572f3a6ca5a294f147901d2d/did-pkh-method-draft.md",
-		authors: ["Wayne Chang", "Charles Lehner", "Juan Caballero", "Joel Thorstensson"],
-                status: "W3C Community Group Draft",
-                publisher: "W3C Credentials Community Group",
-		date: "February 2022"
-	      }
-	    }
-	  };
-	</script>
+  </style>
+  <script defer class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+  <script class="remove">
+  // https://respec.org/docs/
+  const respecConfig = {
+    shortName: "cacao-zcap",
+    specStatus: "unofficial",
+    edDraftURI: "https://demo.didkit.dev/2022/cacao-zcap/",
+    editors: [
+      {
+        name: "Charles E. Lehner", url: "https://www.w3.org/wiki/User:Cel",
+        company: "Spruce", companyURL: "https://spruceid.com/",
+        w3cid: 124982
+      }
+    ],
+    subtitle: "Chain-Agnostic CApability Objects (CACAOs) as Authorization Capabilities (zCaps)",
+    group: "credentials",
+    wgPublicList: "public-credentials",
+    github: {
+      repoURL: "spruceid/cacao-zcap",
+      branch: "main"
+    },
+    localBiblio: {
+      "MULTIBASE": {
+        title: "The Multibase Encoding Scheme",
+        date: "February 2022",
+        href: "https://datatracker.ietf.org/doc/html/draft-multiformats-multibase-05",
+        authors: ["Juan Benet", "Manu Sporny"],
+        status: "Internet-Draft",
+        publisher: "IETF"
+      },
+      "SECURITY-VOCABULARY": {
+        title: "Security Linked Data Vocabulary",
+        href: "https://w3id.org/security",
+        authors: ["Manu Sporny", "David Longley"],
+        status: "CGDRAFT",
+        publisher: "Web Payments Community Group",
+      },
+      "DATA-INTEGRITY": {
+        title: "Data Integrity",
+        href: "https://w3c-ccg.github.io/data-integrity-spec/",
+        authors: ["David Longley", "Manu Sporny"],
+        status: "CGDRAFT",
+        publisher: "Credentials Community Group",
+      },
+      "ZCAP": {
+        title:    "Authorization Capabilities for Linked Data v0.3",
+        href:     "https://w3c-ccg.github.io/zcap-spec/",
+        status:   "CGDRAFT",
+        authors: ["Christopher Lemmer Webber", "Manu Sporny", "Mark S. Miller"],
+        publisher:  "Credentials Community Group"
+      },
+      "CACAO": {
+        title: "CACAO: Chain Agnostic CApability Object",
+        href: "https://github.com/ChainAgnostic/CAIPs/blob/91aaaff73038c2629ff11b88c2209f61521d8ece/CAIPs/caip-74.md",
+        authors: ["Sergey Ukustov"],
+        publisher: "CASA",
+        date: "March 2022"
+      },
+      "DAG-CBOR": {
+        title: "DAG-CBOR: CBOR IPLD format",
+        href: "https://ipld.io/specs/codecs/dag-cbor/spec/",
+        authors: ["Rod Vagg", "Volker Mische", "Mikeal Rogers"],
+        status: "Descriptive - Draft",
+        publisher: "IPLD",
+        date: "August 2019"
+      },
+      "DID-PKH": {
+        title: "The did:pkh Method",
+        href: "https://github.com/w3c-ccg/did-pkh/blob/ea93b0a5e0e8b54e572f3a6ca5a294f147901d2d/did-pkh-method-draft.md",
+        authors: ["Wayne Chang", "Charles Lehner", "Juan Caballero", "Joel Thorstensson"],
+        status: "W3C Community Group Draft",
+        publisher: "W3C Credentials Community Group",
+        date: "February 2022"
+      }
+    }
+  };
+  </script>
 </head>
 <body>
-	<section id="abstract">
-	</section>
+  <section id="abstract">
+  </section>
 
-	<section id="sotd">
-	</section>
+  <section id="sotd">
+  </section>
 
-	<section id="conformance">
-	</section>
+  <section id="conformance">
+  </section>
 
-	<section id="context">
-	<h2>Context</h2>
-	<p><a href="https://www.w3.org/TR/json-ld11/#dfn-context">JSON-LD Context</a> file: <a href="https://demo.didkit.dev/2022/cacao-zcap/context/v1.json">https://demo.didkit.dev/2022/cacao-zcap/context/v1.json</a></p>
-	<p>This context file is expected to be used in <code>@context</code> following the [[SECURITY-VOCABULARY]] context (<a href="https://w3id.org/security/v2">https://w3id.org/security/v2</a>). i.e.:</p>
-	<pre>
+  <section id="context">
+    <h2>Context</h2>
+    <p>
+<a href="https://www.w3.org/TR/json-ld11/#dfn-context">JSON-LD Context</a> file: <a
+href="https://demo.didkit.dev/2022/cacao-zcap/context/v1.json">https://demo.didkit.dev/2022/cacao-zcap/context/v1.json</a>
+    </p>
+    <p>
+This context file is expected to be used in <code>@context</code> following the
+[[SECURITY-VOCABULARY]] context
+(<a href="https://w3id.org/security/v2">https://w3id.org/security/v2</a>). i.e.:
+    </p>
+    <pre>
 {
   "@context": [
     "https://w3id.org/security/v2",
@@ -108,301 +115,370 @@
   ],
   ...
 }
-	</pre>
-	</section>
+    </pre>
+  </section>
 
-	<section id="cacao-zcap-mapping">
-	<h2>CACAO-ZCAP Mapping</h2>
-	<table class="mapping-table">
-		<thead>
-			<tr>
-				<th>CACAO property</th>
-				<th>Relationship/Value</th>
-				<th>ZCAP property</th>
-				<th>Required?</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>h.t</td>
-				<td>=</td>
-				<td>cacaoPayloadType</td>
-				<td>yes</td>
-			</tr>
+  <section id="cacao-zcap-mapping">
+    <h2>CACAO-ZCAP Mapping</h2>
+    <table class="mapping-table">
+      <thead>
+        <tr>
+          <th>CACAO property</th>
+          <th>Relationship/Value</th>
+          <th>ZCAP property</th>
+          <th>Required?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>h.t</td>
+          <td>=</td>
+          <td>cacaoPayloadType</td>
+          <td>yes</td>
+        </tr>
 
-			<tr>
-				<td>p.domain</td>
-				<td>=</td>
-				<td>proof.domain</td>
-				<td>yes</td>
-			</tr>
+        <tr>
+          <td>p.domain</td>
+          <td>=</td>
+          <td>proof.domain</td>
+          <td>yes</td>
+        </tr>
 
-			<tr>
-				<td>p.iss</td>
-				<td><a href="#iss-vm-mapping">DID &harr; DID URL</a></td>
-				<td>proof.verificationMethod</td>
-				<td>yes</td>
-			</tr>
+        <tr>
+          <td>p.iss</td>
+          <td><a href="#iss-vm-mapping">DID &harr; DID URL</a></td>
+          <td>proof.verificationMethod</td>
+          <td>yes</td>
+        </tr>
 
-			<tr>
-				<td>p.aud</td>
-				<td>=</td>
-				<td>invoker</td>
-				<td>yes</td>
-			</tr>
+        <tr>
+          <td>p.aud</td>
+          <td>=</td>
+          <td>invoker</td>
+          <td>yes</td>
+        </tr>
 
-			<tr>
-				<td>p.version</td>
-				<td>"1"</td>
-				<td>&ndash;</td>
-				<td>yes</td>
-			</tr>
+        <tr>
+          <td>p.version</td>
+          <td>"1"</td>
+          <td>&ndash;</td>
+          <td>yes</td>
+        </tr>
 
-			<tr>
-				<td>&ndash;</td>
-				<td><a href="#context">[...]</a></td>
-				<td>@context</td>
-				<td>yes</td>
-			</tr>
+        <tr>
+          <td>&ndash;</td>
+          <td><a href="#context">[...]</a></td>
+          <td>@context</td>
+          <td>yes</td>
+        </tr>
 
-			<tr>
-				<td>&ndash;</td>
-				<td>"<a href="#CacaoZcap2022">CacaoZcap2022</a>"</td>
-				<td>type</td>
-				<td>yes</td>
-			</tr>
+        <tr>
+          <td>&ndash;</td>
+          <td>"<a href="#CacaoZcap2022">CacaoZcap2022</a>"</td>
+          <td>type</td>
+          <td>yes</td>
+        </tr>
 
-			<tr>
-				<td>&ndash;</td>
-				<td>"<a href="#CacaoZcapProof2022">CacaoZcapProof2022</a>"</td>
-				<td>proof.type</td>
-				<td>yes</td>
-			</tr>
+        <tr>
+          <td>&ndash;</td>
+          <td>"<a href="#CacaoZcapProof2022">CacaoZcapProof2022</a>"</td>
+          <td>proof.type</td>
+          <td>yes</td>
+        </tr>
 
-			<tr>
-				<td>p.nonce</td>
-				<td>=</td>
-				<td>proof.nonce</td>
-				<td>yes</td>
-			</tr>
+        <tr>
+          <td>p.nonce</td>
+          <td>=</td>
+          <td>proof.nonce</td>
+          <td>yes</td>
+        </tr>
 
-			<tr>
-				<td>p.iat</td>
-				<td>=</td>
-				<td>proof.created</td>
-				<td>yes</td>
-			</tr>
+        <tr>
+          <td>p.iat</td>
+          <td>=</td>
+          <td>proof.created</td>
+          <td>yes</td>
+        </tr>
 
-			<tr>
-				<td>p.nbf</td>
-				<td>=</td>
-				<td>proof.validFrom</td>
-				<td>no</td>
-			</tr>
+        <tr>
+          <td>p.nbf</td>
+          <td>=</td>
+          <td>proof.validFrom</td>
+          <td>no</td>
+        </tr>
 
-			<tr>
-				<td>p.exp</td>
-				<td>=</td>
-				<td>expires</td>
-				<td>no</td>
-			</tr>
+        <tr>
+          <td>p.exp</td>
+          <td>=</td>
+          <td>expires</td>
+          <td>no</td>
+        </tr>
 
-			<tr>
-				<td>p.statement</td>
-				<td>=</td>
-				<td>cacaoStatement</td>
-				<td>no</td>
-			</tr>
+        <tr>
+          <td>p.statement</td>
+          <td>=</td>
+          <td>cacaoStatement</td>
+          <td>no</td>
+        </tr>
 
-			<tr>
-				<td>p.requestId</td>
-				<td>=</td>
-				<td>requestId</td>
-				<td>no</td>
-			</tr>
+        <tr>
+          <td>p.requestId</td>
+          <td>=</td>
+          <td>requestId</td>
+          <td>no</td>
+        </tr>
 
-			<tr>
-				<td>.</td>
-				<td><a href="#id-cid-uuid-mapping">CID &rarr;</a></td>
-				<td>id</td>
-				<td>no</td>
-			</tr>
+        <tr>
+          <td>.</td>
+          <td><a href="#id-cid-uuid-mapping">CID &rarr;</a></td>
+          <td>id</td>
+          <td>no</td>
+        </tr>
 
-			<tr>
-				<td>p.resources[0]</td>
-				<td>=</td>
-				<td>invocationTarget</td>
-				<td>yes</td>
-			</tr>
+        <tr>
+          <td>p.resources[0]</td>
+          <td>=</td>
+          <td>invocationTarget</td>
+          <td>yes</td>
+        </tr>
 
-			<tr>
-				<td>p.resources[0]</td>
-				<td><a href="#root-zcap-mapping">URL &harr; ZCAP Root URN</a></td>
-				<td>proof.capabilityChain[0]</td>
-				<td>no</td>
-			</tr>
+        <tr>
+          <td>p.resources[0]</td>
+          <td><a href="#root-zcap-mapping">URL &harr; ZCAP Root URN</a></td>
+          <td>proof.capabilityChain[0]</td>
+          <td>no</td>
+        </tr>
 
-			<tr>
-				<td>p.resources[1..n-2]</td>
-				<td><a href="#intermediate-zcap-mapping">=</a></td>
-				<td>proof.capabilityChain[1..n-2]</td>
-				<td>no</td>
-			</tr>
+        <tr>
+          <td>p.resources[1..n-2]</td>
+          <td><a href="#intermediate-zcap-mapping">=</a></td>
+          <td>proof.capabilityChain[1..n-2]</td>
+          <td>no</td>
+        </tr>
 
-			<tr>
-				<td>p.resources[n-1]</td>
-				<td><a href="#previous-zcap-mapping">Object &harr; Data URI</a></td>
-				<td>proof.capabilityChain[n-1]</td>
-				<td>no</td>
-			</tr>
+        <tr>
+          <td>p.resources[n-1]</td>
+          <td><a href="#previous-zcap-mapping">Object &harr; Data URI</a></td>
+          <td>proof.capabilityChain[n-1]</td>
+          <td>no</td>
+        </tr>
 
-			<tr>
-				<td>s.t</td>
-				<td>=</td>
-				<td>proof.cacaoSignatureType</td>
-				<td>yes</td>
-			</tr>
+        <tr>
+          <td>s.t</td>
+          <td>=</td>
+          <td>proof.cacaoSignatureType</td>
+          <td>yes</td>
+        </tr>
 
-			<tr>
-				<td>s.s</td>
-				<td><a href="#signature-proof-value-mapping">bytes &harr; multibase</a></td>
-				<td>proof.proofValue</td>
-				<td>no</td>
-			</tr>
+        <tr>
+          <td>s.s</td>
+          <td><a href="#signature-proof-value-mapping">bytes &harr; multibase</a></td>
+          <td>proof.proofValue</td>
+          <td>no</td>
+        </tr>
 
-		</tbody>
-	</table>
+      </tbody>
+    </table>
 
-	<section id="id-cid-uuid-mapping">
-	<h3>id CID UUID mapping</h3>
-	<p>The CACAO is serialized using [[DAG-CBOR]].
-	A SHA-256 hash is computed over this serialization.
-	The last 16 bytes of the hash (dropping the initial 16)
-	is used as "pseudo-random" input to a [[RFC4122]] v4 UUID.
-	This UUID is represented as a URN by prefixing it with "urn:uuid:".
-	This URN is used as the id of the delegation object.</p>
-	</section>
+    <section id="id-cid-uuid-mapping">
+      <h3>id CID UUID mapping</h3>
+      <p>
+The CACAO is serialized using [[DAG-CBOR]]. A SHA-256 hash is computed over
+this serialization. The last 16 bytes of the hash (dropping the initial 16) is
+used as "pseudo-random" input to a [[RFC4122]] v4 UUID. This UUID is
+represented as a URN by prefixing it with "urn:uuid:". This URN is used as the
+id of the delegation object.
+      </p>
+    </section>
 
-	<section id="iss-vm-mapping">
-	<h3>issuer-verificationMethod mapping</h3>
-	<p>The CACAO payload issuer property (<code>p.iss</code>) is defined by [[CACAO]] to be a [[DID-PKH]] DID. The proof <a href="https://www.w3.org/TR/did-core/#dfn-verificationmethod"><code>verificationMethod</code></a> property is expected to be a <a href="https://www.w3.org/TR/did-core/#did-url-syntax">DID URL</a> resolving to a <a href="https://w3c-ccg.github.io/data-integrity-spec/#verification-methods">verification method</a>.
-	CACAO-ZCAP converts between these two fields by assuming that the issuer DID has a <em>default verification method</em>, that the CACAO signature is created using the <a href="https://w3c-ccg.github.io/data-integrity-spec/#verification-material">verification material</a> of that <em>default verification method</em>, and that the <em>default verification method</em> allows creating a proof of type <a href="#CacaoZcapProof2022">CacaoZcapProof2022</a>.</p>
-	</section>
+    <section id="iss-vm-mapping">
+      <h3>issuer-verificationMethod mapping</h3>
+      <p>
+The CACAO payload issuer property (<code>p.iss</code>) is defined by [[CACAO]]
+to be a [[DID-PKH]] DID. The proof
+<a href="https://www.w3.org/TR/did-core/#dfn-verificationmethod"><code>verificationMethod</code></a>
+property is expected to be a
+<a href="https://www.w3.org/TR/did-core/#did-url-syntax">DID URL</a> resolving to
+a <a href="https://w3c-ccg.github.io/data-integrity-spec/#verification-methods">verification method</a>.
+CACAO-ZCAP converts between these two fields by assuming that the issuer DID
+has a <em>default verification method</em>, that the CACAO signature is created
+using the
+<a href="https://w3c-ccg.github.io/data-integrity-spec/#verification-material">verification material</a>
+of that <em>default verification method</em>, and that the
+<em>default verification method</em> allows creating a proof of type
+<a href="#CacaoZcapProof2022">CacaoZcapProof2022</a>.
+      </p>
+    </section>
 
-	<section id="root-zcap-mapping">
-	<h3>Root ZCAP mapping</h3>
-	<p>The first value of the CACAO payload resources array is used as the invocation target URI, that is the value of the zcap delegation's <code>invocationTarget</code> property. The invocation target URI is encoded into a root zcap URN to become the root capability id. The root zcap URN is constructed as the concatenation of <code>"urn:zcap:root:"</code> with <code>encodeURIComponent(invocationTarget)</code>. To transform the root zcap URN to the invocation target URI, the prefix <code>"urn:zcap:root:"</code> is removed and the remaining value is URL-decoded to return the invocation target id.</p>
-	</section>
+    <section id="root-zcap-mapping">
+      <h3>Root ZCAP mapping</h3>
+      <p>
+The first value of the CACAO payload resources array is used as the invocation
+target URI, that is the value of the zcap delegation's
+<code>invocationTarget</code> property. The invocation target URI is encoded
+into a root zcap URN to become the root capability id. The root zcap URN is
+constructed as the concatenation of <code>"urn:zcap:root:"</code> with
+<code>encodeURIComponent(invocationTarget)</code>. To transform the root zcap
+URN to the invocation target URI, the prefix <code>"urn:zcap:root:"</code> is
+removed and the remaining value is URL-decoded to return the invocation target
+id.
+      </p>
+    </section>
 
-	<section id="intermediate-zcap-mapping">
-	<h3>Intermediate ZCAP mapping</h3>
-	<p>If the proof <code>capabilityChain</code> array / CACAO resources array (<code>p.resources</code>) contain more than two elements,
-	the intermediate elements are passed through as URIs.</p>
-	</section>
+    <section id="intermediate-zcap-mapping">
+      <h3>Intermediate ZCAP mapping</h3>
+      <p>
+If the proof <code>capabilityChain</code> array / CACAO resources array
+(<code>p.resources</code>) contain more than two elements, the intermediate
+elements are passed through as URIs.
+      </p>
+    </section>
 
-	<section id="previous-zcap-mapping">
-	<h3>Previous ZCAP mapping</h3>
-	<p>The last value of the proof <code>capabilityChain</code> array / CACAO resources array (<code>p.resources</code>) represents the previous delegation. If the previous delegation is the root delegation, the <code>capabilityChain</code> array contains only the root delegation id, as a single value. If the previous delegation is a non-root delegation, the last value of the proof <code>capabilityChain</code> array is the previous delegation embedded as an object. The embedded previous delegation is represented in the last value of the CACAO resources array (<code>p.resources</code>) as a [[RFC2397]] Data URI containing the Base64-encoded JSON object serialized with [[RFC8785]] JSON Canonicalization Scheme (JCS).</p>
-	</section>
+    <section id="previous-zcap-mapping">
+      <h3>Previous ZCAP mapping</h3>
+      <p>
+The last value of the proof <code>capabilityChain</code> array / CACAO
+resources array (<code>p.resources</code>) represents the previous delegation.
+If the previous delegation is the root delegation, the
+<code>capabilityChain</code> array contains only the root delegation id, as a
+single value. If the previous delegation is a non-root delegation, the last
+value of the proof <code>capabilityChain</code> array is the previous
+delegation embedded as an object. The embedded previous delegation is
+represented in the last value of the CACAO resources array
+(<code>p.resources</code>) as a [[RFC2397]] Data URI containing the
+Base64-encoded JSON object serialized with [[RFC8785]] JSON Canonicalization
+Scheme (JCS).
+      </p>
+    </section>
 
-	<section id="signature-proof-value-mapping">
-	<h3>signature-proofValue mapping</h3>
-	<p>In CACAO, the signature is represented with an <a href="https://ipld.io/docs/schemas/features/typekinds/">IPLD</a> <em>bytes</em> type. In ZCAP and data integrity proofs, the signature is typically represented in a string in the <a href="https://w3c-ccg.github.io/data-integrity-spec/#dfn-proofvalue">proofValue</a> property of the proof object. CACAO-ZCAP encodes the signature in the proofValue property using [[MULTIBASE]].</p>
-	</section>
+    <section id="signature-proof-value-mapping">
+      <h3>signature-proofValue mapping</h3>
+      <p>
+In CACAO, the signature is represented with an
+<a href="https://ipld.io/docs/schemas/features/typekinds/">IPLD</a>
+<em>bytes</em> type. In ZCAP and data integrity proofs, the signature is
+typically represented in a string in the
+<a href="https://w3c-ccg.github.io/data-integrity-spec/#dfn-proofvalue">proofValue</a>
+property of the proof object. CACAO-ZCAP encodes the signature in the
+proofValue property using [[MULTIBASE]].
+      </p>
+    </section>
 
-	</section>
+  </section>
 
-	<section id="terms">
-	<h2>Terms</h2>
-	<p>This document defines the following terms, in the namespace <code>https://demo.didkit.dev/2022/cacao-zcap/#</code>.</p>
+  <section id="terms">
+    <h2>Terms</h2>
+    <p>
+This document defines the following terms, in the namespace
+<code>https://demo.didkit.dev/2022/cacao-zcap/#</code>.
+    </p>
 
-	<section id="CacaoZcap2022">
-	<h3>CacaoZcap2022</h3>
-	<p>A CACAO interpreted as an authorization capability delegation.</p>
-	<p>The <code>proof</code> property should be an object of type <a href="#CacaoZcapProof2022">CacaoZcapProof2022</a>. The <code>invocationTarget</code> property should be the URL to which an entity is being authorized access.</p>
-        <dl>
-		<dt><a href="https://www.w3.org/2003/06/sw-vocab-status/note.html#vocab">Status</a></dt>
-		<dd>unstable</dd>
-		<dt>Expected properties</dt>
-		<dd>
-			<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">type</a>,
-			<a href="https://w3id.org/security#parentCapability">parentCapability</a>,
-			<a href="https://w3id.org/security#invocationTarget">invocationTarget</a>,
-			<a href="https://w3id.org/security#expiration">expires</a>,
-			<a href="#cacaoStatement">cacaoStatement</a>,
-			<a href="#cacaoRequestId">cacaoRequestId</a>,
-			<a href="https://w3id.org/security#proof">proof</a>
-		</dd>
-        </dl>
-	</section>
+    <section id="CacaoZcap2022">
+      <h3>CacaoZcap2022</h3>
+      <p>
+A CACAO interpreted as an authorization capability delegation.
+      </p>
+      <p>
+The <code>proof</code> property should be an object of type
+<a href="#CacaoZcapProof2022">CacaoZcapProof2022</a>.
+The <code>invocationTarget</code> property should be the URL to which an entity
+is being authorized access.
+      </p>
+      <dl>
+        <dt><a href="https://www.w3.org/2003/06/sw-vocab-status/note.html#vocab">Status</a></dt>
+        <dd>unstable</dd>
+        <dt>Expected properties</dt>
+        <dd>
+          <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">type</a>,
+          <a href="https://w3id.org/security#parentCapability">parentCapability</a>,
+          <a href="https://w3id.org/security#invocationTarget">invocationTarget</a>,
+          <a href="https://w3id.org/security#expiration">expires</a>,
+          <a href="#cacaoStatement">cacaoStatement</a>,
+          <a href="#cacaoRequestId">cacaoRequestId</a>,
+          <a href="https://w3id.org/security#proof">proof</a>
+        </dd>
+      </dl>
+    </section>
 
-	<section id="CacaoZcapProof2022">
-	<h3>CacaoZcapProof2022</h3>
-	<p>A <a href="https://w3c-ccg.github.io/data-integrity-spec/#proofs">data integrity proof</a> over an authorization capability delegation document (<a href="#CacaoZcap2022">CacaoZcap2022</a>), together representing a CACAO.</p>
-        <dl>
-		<dt><a href="https://www.w3.org/2003/06/sw-vocab-status/note.html#vocab">Status</a></dt>
-		<dd>unstable</dd>
-		<dt>Expected properties</dt>
-		<dd>
-			<a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">type</a>,
-			<a href="http://purl.org/dc/terms/created">created</a>,
-			<a href="https://w3id.org/security#verificationMethod">verificationMethod</a>,
-			<a href="https://w3id.org/security#proofPurpose">proofPurpose</a>,
-			<a href="https://w3id.org/security#proofValue">proofValue</a>,
-			<a href="https://w3id.org/security#domain">domain</a>,
-			<a href="https://w3id.org/security#nonce">nonce</a>,
-			<a href="https://w3id.org/security#capabilityChain">capabilityChain</a>,
-			<a href="#cacaoPayloadType">cacaoPayloadType</a>,
-			<a href="#cacaoSignatureType">cacaoSignatureType</a>
-		</dd>
-        </dl>
-	</section>
+    <section id="CacaoZcapProof2022">
+      <h3>CacaoZcapProof2022</h3>
+      <p>
+A <a href="https://w3c-ccg.github.io/data-integrity-spec/#proofs">data
+integrity proof</a> over an authorization capability delegation document
+(<a href="#CacaoZcap2022">CacaoZcap2022</a>), together representing a CACAO.
+      </p>
+      <dl>
+        <dt><a href="https://www.w3.org/2003/06/sw-vocab-status/note.html#vocab">Status</a></dt>
+        <dd>unstable</dd>
+        <dt>Expected properties</dt>
+        <dd>
+          <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">type</a>,
+          <a href="http://purl.org/dc/terms/created">created</a>,
+          <a href="https://w3id.org/security#verificationMethod">verificationMethod</a>,
+          <a href="https://w3id.org/security#proofPurpose">proofPurpose</a>,
+          <a href="https://w3id.org/security#proofValue">proofValue</a>,
+          <a href="https://w3id.org/security#domain">domain</a>,
+          <a href="https://w3id.org/security#nonce">nonce</a>,
+          <a href="https://w3id.org/security#capabilityChain">capabilityChain</a>,
+          <a href="#cacaoPayloadType">cacaoPayloadType</a>,
+          <a href="#cacaoSignatureType">cacaoSignatureType</a>
+        </dd>
+      </dl>
+    </section>
 
-	<section id="cacaoPayloadType">
-	<h3>cacaoPayloadType</h3>
-	<p>CACAO payload format type (CACAO header "t" value). e.g. "eip4361".</p>
-        <dl>
-		<dt><a href="https://www.w3.org/2003/06/sw-vocab-status/note.html#vocab">Status</a></dt>
-		<dd>unstable</dd>
-		<dt>Expected type</dt>
-		<dd><a href="https://www.w3.org/TR/xmlschema11-2/#string">xsd:string</a></dd>
-	</dl>
-	</section>
+    <section id="cacaoPayloadType">
+      <h3>cacaoPayloadType</h3>
+      <p>
+CACAO payload format type (CACAO header "t" value). e.g. "eip4361".
+      </p>
+      <dl>
+        <dt><a href="https://www.w3.org/2003/06/sw-vocab-status/note.html#vocab">Status</a></dt>
+        <dd>unstable</dd>
+        <dt>Expected type</dt>
+        <dd><a href="https://www.w3.org/TR/xmlschema11-2/#string">xsd:string</a></dd>
+      </dl>
+    </section>
 
-	<section id="cacaoSignatureType">
-	<h3>cacaoSignatureType</h3>
-	<p>CACAO signature type (CACAO signature "t" value). e.g. "eip191" or "eip1271".</p>
-        <dl>
-		<dt><a href="https://www.w3.org/2003/06/sw-vocab-status/note.html#vocab">Status</a></dt>
-		<dd>unstable</dd>
-		<dt>Expected type</dt>
-		<dd><a href="https://www.w3.org/TR/xmlschema11-2/#string">xsd:string</a></dd>
-	</dl>
-	</section>
+    <section id="cacaoSignatureType">
+      <h3>cacaoSignatureType</h3>
+      <p>
+CACAO signature type (CACAO signature "t" value). e.g. "eip191" or "eip1271".
+      </p>
+      <dl>
+        <dt><a href="https://www.w3.org/2003/06/sw-vocab-status/note.html#vocab">Status</a></dt>
+        <dd>unstable</dd>
+        <dt>Expected type</dt>
+        <dd><a href="https://www.w3.org/TR/xmlschema11-2/#string">xsd:string</a></dd>
+      </dl>
+    </section>
 
-	<section id="cacaoStatement">
-	<h3>cacaoStatement</h3>
-	<p>CACAO statement (CACAO payload "statement" value).</p>
-        <dl>
-		<dt><a href="https://www.w3.org/2003/06/sw-vocab-status/note.html#vocab">Status</a></dt>
-		<dd>unstable</dd>
-		<dt>Expected type</dt>
-		<dd><a href="https://www.w3.org/TR/xmlschema11-2/#string">xsd:string</a></dd>
-	</dl>
-	</section>
+    <section id="cacaoStatement">
+      <h3>cacaoStatement</h3>
+      <p>
+CACAO statement (CACAO payload "statement" value).
+      </p>
+      <dl>
+        <dt><a href="https://www.w3.org/2003/06/sw-vocab-status/note.html#vocab">Status</a></dt>
+        <dd>unstable</dd>
+        <dt>Expected type</dt>
+        <dd><a href="https://www.w3.org/TR/xmlschema11-2/#string">xsd:string</a></dd>
+      </dl>
+    </section>
 
-	<section id="cacaoRequestId">
-	<h3>cacaoRequestId</h3>
-	<p>CACAO request ID (CACAO payload "requestId" value).</p>
-        <dl>
-		<dt><a href="https://www.w3.org/2003/06/sw-vocab-status/note.html#vocab">Status</a></dt>
-		<dd>unstable</dd>
-		<dt>Expected type</dt>
-		<dd><a href="https://www.w3.org/TR/xmlschema11-2/#string">xsd:string</a></dd>
-	</dl>
-	</section>
+    <section id="cacaoRequestId">
+      <h3>cacaoRequestId</h3>
+      <p>
+CACAO request ID (CACAO payload "requestId" value).
+      </p>
+      <dl>
+        <dt><a href="https://www.w3.org/2003/06/sw-vocab-status/note.html#vocab">Status</a></dt>
+        <dd>unstable</dd>
+        <dt>Expected type</dt>
+        <dd><a href="https://www.w3.org/TR/xmlschema11-2/#string">xsd:string</a></dd>
+      </dl>
+    </section>
 
-	</section>
+  </section>
 
 </body>
 </html>
