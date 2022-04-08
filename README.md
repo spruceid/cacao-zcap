@@ -1,7 +1,7 @@
 # CACAO-ZCAP
 
 Integration of [CAIP-74: Chain-Agnostic Capability Objects (CACAO)][CACAO]
-with [Authorization Capabilities for Linked Data][ZCAP].
+with [Authorization Capabilities for Linked Data (ZCAP)][ZCAP].
 
 View the rendered specification draft document: [cacao-zcap][]  
 Source: [index.html](./index.html)
