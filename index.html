@@ -296,11 +296,11 @@ id of the delegation object.
       <h3>issuer-verificationMethod mapping</h3>
       <p>
 The CACAO payload issuer property (<code>p.iss</code>) is defined by [[CACAO]]
-to be a [[DID-PKH]] DID. The proof
+to be a [[DID-PKH]] <a data-cite="DID-CORE#dfn-decentralized-identifiers">DID</a>. The proof
 <a href="https://w3c-ccg.github.io/data-integrity-spec/#dfn-verificationmethod">verificationMethod</a>
 property is expected to be a
-<a href="https://www.w3.org/TR/did-core/#did-url-syntax">DID URL</a> resolving to
-a <a href="https://www.w3.org/TR/did-core/#verification-methods">verification method map</a>.
+<a data-cite="DID-CORE#did-url-syntax">DID URL</a> resolving to
+a <a data-cite="DID-CORE#verification-methods">verification method map</a>.
 CACAO-ZCAP converts between these two fields (CACAO issuer and verification
 method URL) by assuming that the issuer DID
 has a <em>default verification method</em>, that the CACAO signature is created
