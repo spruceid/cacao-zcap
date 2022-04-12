@@ -484,5 +484,15 @@ CACAO request ID (CACAO payload "requestId" value).
 
   </section>
 
+  <section class="informative">
+    <h2>Security Considerations</h2>
+
+    <section class="informative">
+      <h3>Content in zCap not included in CACAO</h3>
+      <p>Certain properties of the zCap delegation and proof object do not appear in the CACAO object but are synthesized as part of the [[[#cacao-zcap-mapping]]]. In particular, the delegation type property with value <code>CacaoZcap2022</code>, proof type property with value <code>CacaoZcapProof2022</code>, and proof <code>proofPurpose</code> property with value <code>capabilityDelegation</code>. Other properties are passed through from the CACAO into the delegation/proof but with different property names, which may have different meanings, e.g. <code>iss</code> as <code>verificationMethod</code>, and <code>iat</code> as <code>created</code>. It is possible therefore that an entity may sign/create a CACAO without intending it to be used as <code>CacaoZcap2022</code>/<code>CacaoZcapProof2022</code> or realizing that it may be used as such. Applications may want to pay close attention to the CACAO statement property (<code>cacaoStatement</code>) - which is expected to be seen by the user during signing - for determining how much to rely on a <code>CacaoZcap2022</code>/<code>CacaoZcapProof2022</code> for authorization/delegation purposes. 
+    </section>
+
+  </section>
+
 </body>
 </html>
