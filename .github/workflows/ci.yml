@@ -1,0 +1,12 @@
+name: CI
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  ci:
+    name: Check Respec
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: w3c/spec-prod@v2
