@@ -141,8 +141,8 @@ section:target {
 
 			<tr>
 				<td>p.statement</td>
-				<td>=</td>
-				<td>cacaoStatement</td>
+				<td><a href="#statement-actions-mapping">statement-actions mapping</a></td>
+				<td>cacaoZcapSubstatement, allowedAction</td>
 				<td>no</td>
 			</tr>
 
@@ -244,6 +244,26 @@ section:target {
 	<p>In CACAO, the signature is represented with an <a href="https://ipld.io/docs/schemas/features/typekinds/">IPLD</a> <em>bytes</em> type. In ZCAP and data integrity proofs, the signature is typically represented in a string in the <a href="https://w3c-ccg.github.io/data-integrity-spec/#dfn-proofvalue">proofValue</a> property of the proof object. CACAO-ZCAP encodes the signature in the proofValue property using <a href="https://datatracker.ietf.org/doc/html/draft-multiformats-multibase">multibase</a>.</p>
 	</section>
 
+	<section id="statement-actions-mapping">
+	<h3><a href="#statement-actions-mapping">statement-actions mapping</a></h3>
+	<p>The CACAO statement string MUST match the following ABNF (extending <a href="https://www.rfc-editor.org/rfc/rfc3986#appendix-A">RFC 3986</a>):</p>
+	<pre>
+statement        = stmt-noaction / stmt-action
+stmt-noaction    = "Authorize action" substmt-opt
+stmt-action      = "Authorize action (" actions ")" substmt-opt
+substmt-opt      = [ ": " substatement ]
+actions          = action *( ", " action )
+action           = *( reserved / unreserved / " " )
+substatement     = *( reserved / unreserved / " " )
+	</pre>
+	<p>The <code>substatement</code> is the value of the <a href="#cacaoZcapSubstatement">cacaoZcapSubstatement</a> proof property if present.</p>
+	<p>The <code>action</code> values are represented in the proof's <code>allowedAction</code> property as follows:</p>
+	<ul>
+		<li><code>allowedAction</code> is omitted when the <code>stmt-noaction</code> production is matched.</li>
+		<li><code>allowedAction</code> is an array of <code>action</code> strings when the <code>stmt-actions</code> production is matched.</li>
+	</ul>
+	</section>
+
 	</section>
 
 	<section id="terms">
@@ -263,7 +283,8 @@ section:target {
 			<a href="https://w3id.org/security#parentCapability">parentCapability</a>,
 			<a href="https://w3id.org/security#invocationTarget">invocationTarget</a>,
 			<a href="https://w3id.org/security#expiration">expires</a>,
-			<a href="#cacaoStatement">cacaoStatement</a>,
+			<a href="https://w3id.org/security#allowedAction">allowedAction</a>,
+			<a href="#cacaoZcapSubstatement">cacaoZcapSubstatement</a>,
 			<a href="#cacaoRequestId">cacaoRequestId</a>,
 			<a href="https://w3id.org/security#proof">proof</a>
 		</dd>
@@ -314,9 +335,11 @@ section:target {
 	</dl>
 	</section>
 
-	<section id="cacaoStatement">
-	<h3><a href="#cacaoStatement">cacaoStatement</a></h3>
-	<p>CACAO statement (CACAO payload "statement" value).</p>
+	<section id="cacaoZcapSubstatement">
+	<h3><a href="#cacaoZcapSubstatement">cacaoZcapSubstatement</a></h3>
+	<p>CACAO substatement, parsed from the CACAO payload "statement" value
+	according to the <a href="#statement-actions-mapping">statement-actions
+	mapping</a>.</p>
         <dl>
 		<dt><a href="https://www.w3.org/2003/06/sw-vocab-status/note.html#vocab">Status</a></dt>
 		<dd>unstable</dd>
