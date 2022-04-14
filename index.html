@@ -372,7 +372,7 @@ proofValue property using [[MULTIBASE]].
       <p>The CACAO statement string MUST match the following ABNF (extending <a href="https://www.rfc-editor.org/rfc/rfc3986#appendix-A">RFC 3986</a>):</p>
       <pre>
 statement        = stmt-noaction / stmt-action
-stmt-noaction    = "Authorize action " substmt-opt
+stmt-noaction    = "Authorize action" substmt-opt
 stmt-action      = "Authorize action (" actions ")" substmt-opt
 substmt-opt      = [ ": " substatement ]
 actions          = action *( ", " action )
