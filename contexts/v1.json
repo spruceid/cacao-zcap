@@ -12,7 +12,7 @@
         "id": "@id",
         "type": "@type",
         "cacaoPayloadType": "https://demo.didkit.dev/2022/cacao-zcap/#cacaoPayloadType",
-        "cacaoSubstatement": "https://demo.didkit.dev/2022/cacao-zcap/#cacaoSubstatement",
+        "cacaoZcapSubstatement": "https://demo.didkit.dev/2022/cacao-zcap/#cacaoZcapSubstatement",
         "cacaoRequestId": "https://demo.didkit.dev/2022/cacao-zcap/#cacaoRequestId"
       }
     },
