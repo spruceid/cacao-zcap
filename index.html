@@ -14,7 +14,7 @@
   const respecConfig = {
     shortName: "cacao-zcap",
     specStatus: "unofficial",
-    edDraftURI: "https://demo.didkit.dev/2022/cacao-zcap/",
+    edDraftURI: "https://w3id.org/zcap/cacao/",
     editors: [
       {
         name: "Charles E. Lehner", url: "https://www.w3.org/wiki/User:Cel",
@@ -101,7 +101,7 @@
     <p>
 This specification defines the following
 <a href="https://www.w3.org/TR/json-ld11/#dfn-context">JSON-LD Context</a> file:
-<a href="contexts/v1.json">https://demo.didkit.dev/2022/cacao-zcap/contexts/v1.json</a>
+<a href="contexts/v1.json">https://w3id.org/zcap/cacao/v1</a>
     </p>
     <p>
 JSON-LD documents using <a href="#CacaoZcap2022">CacaoZcap2022</a> and <a href="#CacaoZcapProof2022">CacaoZcapProof2022</a> are expected to use this context file in <code>@context</code> following the
@@ -112,7 +112,7 @@ JSON-LD documents using <a href="#CacaoZcap2022">CacaoZcap2022</a> and <a href="
 {
   "@context": [
     "https://w3id.org/security/v2",
-    "https://demo.didkit.dev/2022/cacao-zcap/contexts/v1.json"
+    "https://w3id.org/zcap/cacao/v1"
   ],
   ...
 }
@@ -392,7 +392,7 @@ substatement     = *( reserved / unreserved / " " )
     <h2>CACAO-ZCAP Vocabulary</h2>
     <p>
 This document defines the following terms, in the namespace
-<code>https://demo.didkit.dev/2022/cacao-zcap/#</code>.
+<code>https://w3id.org/zcap/cacao#</code>.
     </p>
     <p>
 In JSON-LD, these terms may be imported using [[[#context]]].
